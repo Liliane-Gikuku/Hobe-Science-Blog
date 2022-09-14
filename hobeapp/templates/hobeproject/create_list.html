@@ -1,0 +1,19 @@
+<table>
+    <th>
+        <td>Publisher profile</td>
+        <td>Publisher username</td>
+        <td>Title</td>
+        <td>Cover</td>
+        <td>Story</td>
+
+    </th>
+    {%for draft in drafts%}
+    <tr>
+        <td>{{draft.publisher_profile_picture}}</td>
+        <td>{{draft.username}}</td>
+        <td>{{draft.title}}</td>
+        <td>{{draft.cover}}</td>
+        <td>{{draft.story}}</td>
+    </tr>
+    {% endfor %}
+</table>

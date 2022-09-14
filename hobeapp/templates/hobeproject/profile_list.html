@@ -1,0 +1,16 @@
+<table>
+    <th>
+        <td>Profile picture</td>
+        <td>Username</td>
+        
+        
+
+    </th>
+    {%for profile in profiles%}
+    <tr>
+        <td>{{profile.username}}</td>
+        <td>{{profile.profile_picture}}</td>
+       
+    </tr>
+    {% endfor %}
+</table>

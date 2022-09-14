@@ -1,0 +1,16 @@
+<table>
+    <th>
+        <td>Story Title</td>
+        <td>Story Cover</td>
+        
+        
+
+    </th>
+    {%for story in stories%}
+    <tr>
+        <td>{{story.story_title}}</td>
+        <td>{{story.story_cover}}</td>
+       
+    </tr>
+    {% endfor %}
+</table>
