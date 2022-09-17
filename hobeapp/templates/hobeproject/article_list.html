@@ -31,50 +31,11 @@ li{
   background-color:#090F34;
   width:130px;
 }
-
-.image1{
-  margin-left: 35%;
-  margin-top: 4%;
-}
-
-
-#wlch{
-  color: white;
-  font-weight: bold;
-  font-size: 250%;
-  margin-top: 2%;
-  margin-left: 34%;
-}
-
-
-
-#read1{
-  color: rgb(209, 193, 193);
-  margin-left: 16%;
-  /* padding-top: 2%; */
-  font-size: 25px;
-
-}
-#wl{
-  color:#42E0FF;
-  font-weight:bold;
-}
-
-{% comment %} #read2{
-  color: rgb(209, 193, 193);
-  margin-left: 33%;
-  font-size: 20px;
-  
-
-} {% endcomment %}
-
 </style>
 
 </head>
 <body>
 
-
-  
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -105,36 +66,27 @@ li{
       </div>
     </div>
   </nav>
-  
-  <div class="image1">
-  <img src="https://news.microsoft.com/wp-content/uploads/prod/sites/133/2020/06/shutterstock_14-960x640.jpg" class="rounded-circle" width="350px" height="330px"alt="Hobe minds"> 
-    {% comment %} <img src="{% static'hobeapp/media/teens-removebg-preview.png'%}" alt="Hobe minds"/>  {% endcomment %}
-   
-  </div>
 
-  <div class="hwelcome">
-    <h1 id="wlch">Welcome to Hobe</h1>
-    <p id="read1">Read and Share Exciting Science Concepts <span id="wl">With a Curious and Updated Community</span></p>
+
+ {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <h1>{%for article in articles  %}{{ article.headline }} {% endfor %}</h1>
+        <p class=" text-muted">{{ article.author }} | {{ article.image }}</p>
+        <p class="card-text ">{{ object.description | safe }}</p>
+      </div>
+    </div>
     
   </div>
+</div>
 
- {% comment %} <nav class="navbar fixed-bottom navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"></a>
-  </div>
-</nav> {% endcomment %}
+{% endblock content %}
 
-{% comment %} Bottom nav {% endcomment %}
-
-
-
-  
-    
-
-   
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
-

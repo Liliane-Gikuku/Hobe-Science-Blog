@@ -1,0 +1,203 @@
+{%load static%}
+<!Doctype html>
+<html>
+<head>
+    <title></title> 
+   <link rel="stylesheet" href="{% static '/style.css' %}">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ 
+ 
+ 
+ 
+ <style>
+
+#writing{
+        color:#42E0FF;
+        margin-left:40%;
+        margin-top:4%;
+        
+        font-size:80px;
+        border: solid transparent;
+        
+}
+
+#writelines{
+    color:#42E0FF;
+    margin-left:17%;
+    margin-top:0%;
+    font-size:80px;
+    border: solid transparent;
+    width:90%;
+}
+body{
+    font-size: 20px;
+    font-family: 'Hina Mincho', serif;
+    background-color: #090F34;
+    width: 100%;
+    overflow-x:hidden;
+}
+
+#article{
+    color:#090F34;
+    padding-top:3%;
+    margin-left:5%;
+    font-weight:bold;
+}
+
+.write input{
+    width: 50%;
+    outline: none;
+    border: 2px solid #42E0FF ;
+    font-size: 15px;
+    padding: 8px 8px;
+    border-radius: 5px;
+    background-color: white ;
+    margin-left:1.7%;
+    margin-top:1%;
+    
+    
+    
+}
+.write field{
+    color:red;
+    
+}
+
+.write{
+    
+    width: 100%;
+    background-color:white;
+    margin-top:7%;
+   
+    
+    {% comment %} margin-left:28%; {% endcomment %}
+    
+  
+    
+    
+    
+}
+
+
+
+.write label{
+    margin-left:25%;
+    
+}
+
+.write h2{
+    margin-left: 40%;
+    {% comment %} padding-top: 11%; {% endcomment %}
+}
+
+#logo{
+    margin-left:4%;
+    color:#42E0FF;
+    font-weight:bold;
+}
+
+#nav{
+    margin-left:60%;
+    padding:1%;
+    
+}
+
+li{
+    padding-right:20%;
+}
+
+.btn{
+    background-color:#090F34;
+    width:130px;
+    color:white;
+}
+
+.btnpublish{
+    background-color:#090F34;
+    width:130px;
+    color:white;
+    margin-left:65%;
+    
+    
+}
+
+form label{
+    
+    color:#090F34;
+    margin-top:4%;
+    padding: 8px 8px;
+
+form input{
+    width:100%;
+}
+form{
+    padding-top:5%;
+}
+
+   
+</style>
+</head>
+
+<body>
+
+
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{%url 'home_view'%}" id="logo">Hobe</a>
+     
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;" id="nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{%url 'article_view'%}">Trending</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{%url 'home_view'%}">Home</a>
+          </li>
+        
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn">
+              Write
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="{%url 'create_view'%}">Create new story</a>
+              <a class="dropdown-item" href="{%url 'drafts_list'%}">Drafts</a>
+              
+            </div>
+          </div>
+        
+        </ul>
+      
+      </div>
+    </div>
+  </nav>
+
+
+
+
+    <div class="card text-bg-dark" style="width: 80rem;">
+    <img src="https://media.istockphoto.com/photos/emotional-afroamerican-business-school-student-picture-id693683702?k=20&m=693683702&s=612x612&w=0&h=wPl0lolJ3RI3mxhLkgH0OiOAeF3FqPnCJHg-z5ZYr9k=" class="card-img" alt="...">
+    <div class="card-img-overlay">
+      <h1 class="card-title" id="writing">Writing </h1>
+      <h1 class="card-title" id="writelines">What I discovered Today </h1>
+      <p class="card-text"></p>
+      <div class="write">
+        <h2 id="article">New Article</h2>
+        <hr>
+    <form method="POST" class="post-form" id="new_article">{% csrf_token %}
+        {{form.as_p}}
+        <div class="btnpublish">
+        <button type="submit" class="save btn btn-default">Save</button>
+        </div>
+    </form>
+    </div> 
+    </div>
+  </div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
